@@ -1,0 +1,26 @@
+<resources>
+    <!-- Reply Preference -->
+    <string-array name="temperature_entries">
+        <item>@string/metric</item>
+        <item>@string/imperial</item>
+    </string-array>
+
+    <string-array name="temperature_values">
+        <item>metric</item>
+        <item>imperial</item>
+    </string-array>
+
+    <string-array name="wind_entries">
+        <item>km/h</item>
+        <item>mph</item>
+        <item>m/s</item>
+    </string-array>
+
+    <string-array name="wind_values">
+        <item>kmh</item>
+        <item>mph</item>
+        <item>ms</item>
+    </string-array>
+
+
+</resources>

@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".view.CityActivity"
+    tools:showIn="@layout/activity_city">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <com.example.androidweatherchallenge.utils.OnlyVerticalSwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/weather_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/section_city_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="32dp">
+
+                <ImageView
+                    android:id="@+id/icon_city_weather"
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="-16dp"
+                    android:layout_toEndOf="@id/text_city_temperature"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/weather10d" />
+
+                <TextView
+                    android:id="@+id/text_city_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/icon_city_weather"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/white"
+                    android:textSize="56sp"
+                    tools:text="21" />
+
+                <TextView
+                    android:id="@+id/text_city_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/text_city_temperature"
+                    android:layout_toEndOf="@id/text_city_temperature"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="&#176;C" />
+
+                <TextView
+                    android:id="@+id/text_city_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_city_temperature"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="Haze" />
+
+                <TextView
+                    android:id="@+id/text_city_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="London" />
+
+                <TextView
+                    android:id="@+id/text_city_tempmax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_city_name"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:drawableStart="@drawable/ic_arrow_up"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="24&#176;" />
+
+                <TextView
+                    android:id="@+id/text_city_tempmin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_city_tempmax"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:drawableStart="@drawable/ic_arrow_down"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    tools:text="16&#176;" />
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/separator_city_one"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/section_city_main"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/white50" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_city_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/separator_city_one"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true">
+
+                <RelativeLayout
+                    android:id="@+id/container_city_sunrise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    app:layout_constraintEnd_toStartOf="@+id/container_city_sunset"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/label_city_sunrise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Sunrise"
+                        android:textColor="@color/white70"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_city_sunrise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_city_sunrise"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        tools:text="06h32" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/container_city_sunset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_toEndOf="@id/container_city_sunrise"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout2"
+                    app:layout_constraintStart_toEndOf="@+id/container_city_sunrise"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/label_city_sunset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Sunset"
+                        android:textColor="@color/white70"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_city_sunset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_city_sunset"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        tools:text="17h40" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
+                    app:layout_constraintStart_toEndOf="@+id/container_city_sunset"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/label_city_winddirection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Wind Direction"
+                        android:textColor="@color/white70"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_city_winddirection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_city_winddirection"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        tools:text="Northeast" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/relativeLayout2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/label_city_windspeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Wind Speed"
+                        android:textColor="@color/white70"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/text_city_windspeed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/label_city_windspeed"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        tools:text="8.8 km/h" />
+
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/separator_city_two"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/constraint_city_details"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/white50" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_city_forecast"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/separator_city_two"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/transparent"
+                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:listitem="@layout/item_forecast"
+                tools:orientation="horizontal" />
+
+        </RelativeLayout>
+
+    </com.example.androidweatherchallenge.utils.OnlyVerticalSwipeRefreshLayout>
+
+
+</RelativeLayout>

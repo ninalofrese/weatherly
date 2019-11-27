@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Weatherly</string>
+    <string name="action_settings">Settings</string>
+    <string name="procurar_cidade">Procurar cidade</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="unidades">Unidades</string>
+    <string name="share">Share</string>
+    <string name="title_activity_city">CityActivity</string>
+    <string name="search">Search</string>
+    <string name="metric">&#176;C</string>
+    <string name="imperial">&#176;F</string>
+    <string name="title_activity_recent_cities">RecentCitiesActivity</string>
+    <string name="recent_cities">Recent Cities</string>
+</resources>

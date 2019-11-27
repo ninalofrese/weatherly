@@ -94,7 +94,7 @@ public class CityActivity extends AppCompatActivity {
 
         if (getIntent() != null && getIntent().getExtras() != null) {
             currentCity = getIntent().getParcelableExtra(CITY_KEY);
-            viewModel.getCity(currentCity.getCoord().getLat(), currentCity.getCoord().getLon(), currentCity.getId());
+            reloadPage();
         } else {
             getCityData();
         }
@@ -137,19 +137,6 @@ public class CityActivity extends AppCompatActivity {
         });
 
     }
-
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-//        currentCity = savedInstanceState.getParcelable(CITY_KEY);
-//        viewModel.getCity(currentCity.getCoord().getLat(), currentCity.getCoord().getLon(), currentCity.getId());
-//        super.onRestoreInstanceState(savedInstanceState);
-//    }
-//
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        outState.putParcelable(CITY_KEY, currentCity);
-//        super.onSaveInstanceState(outState);
-//    }
 
     public void getCityData() {
         if (isNetworkConnected(getApplication())) {

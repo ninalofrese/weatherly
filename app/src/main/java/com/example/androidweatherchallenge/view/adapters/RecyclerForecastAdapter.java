@@ -53,6 +53,7 @@ public class RecyclerForecastAdapter extends RecyclerView.Adapter<RecyclerForeca
         if (this.forecastList.isEmpty()) {
             this.forecastList = forecastList;
         } else {
+            this.forecastList.clear();
             this.forecastList.addAll(forecastList);
         }
         notifyDataSetChanged();

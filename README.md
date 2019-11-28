@@ -22,6 +22,8 @@ Este app foi desenvolvido com o objetivo de praticar os estudos de Android, usan
 
 - **Para rodar o app, precisa inserir as API keys do Google Places e do OpenWeatherMap no arquivo `AppConstants.java`**
 
+[Vídeo](https://www.linkedin.com/feed/update/urn:li:activity:6605515528880574465/)
+
 ## Autora
 
 Nina Lofrese - [ninalofrese@gmail.com](mailto:ninalofrese@gmail.com)
